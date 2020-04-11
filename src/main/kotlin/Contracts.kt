@@ -1,6 +1,7 @@
 import java.lang.RuntimeException
 
-open class Contract(val name: String, val invariant: () -> Boolean, private val treeBody: String) : () -> Boolean {
+open class Contract(val name: String, private val invariant: () -> Boolean, private val treeBody: String) :
+        () -> Boolean {
     constructor(name: String, invariant: () -> Boolean) : this(name, invariant, "")
 
     fun assertContract() {
